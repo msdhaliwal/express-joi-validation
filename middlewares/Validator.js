@@ -7,7 +7,8 @@ const Validators = require('../validators')
 
 module.exports = function(validator) {
     //! If validator is not exist, throw err
-    if(!Validators.hasOwnProperty(validator))
+    // if(!Validators.hasOwnProperty(validator))
+    if (!Object.prototype.hasOwnProperty.call(Validators, validator))
         throw new Error(`'${validator}' validator is not exist`)
 
     return async function(req, res, next) {
